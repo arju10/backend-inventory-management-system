@@ -11,7 +11,7 @@ exports.createEmployee = async (req, res) => {
     }
 };
 
-// GET all New Employees : "/api/v1/employees/allEmployees"  >>>> Method [GET]
+// GET all Employees : "/api/v1/employees/allEmployees"  >>>> Method [GET]
 
 exports.getAllEmployees = async (req, res) => {
     try {
@@ -22,3 +22,18 @@ exports.getAllEmployees = async (req, res) => {
     }
 };
 
+// Update a Employee by ID : "/api/v1/employees/update-employee/:id"  >>>> Method [GET]
+
+exports.updateEmployee = async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    try {
+      const updatedEmployee = await Employee.findByIdAndUpdate(id, updates, { new: true });
+      if (!updatedEmployee) {
+        return res.status(404).json({ message: "Employee not found" });
+      }
+      res.status(200).json(updatedEmployee);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+};
