@@ -10,3 +10,15 @@ exports.createEmployee = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
 };
+
+// GET all New Employees : "/api/v1/employees/allEmployees"  >>>> Method [GET]
+
+exports.getAllEmployees = async (req, res) => {
+    try {
+      const employees = await Employee.find();
+      res.status(200).json(employees);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+};
+
