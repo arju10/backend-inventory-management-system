@@ -16,6 +16,11 @@ connectDatabase();
 
 
 // import routes
+// Employee Route
+const employeeRoutes = require('./api/Employee/employee.route')
+app.use('/api/v1/employees',employeeRoutes)
+
+
 
 
 

@@ -1,33 +1,33 @@
 const mongoose = require('mongoose');
 
 const employeeSchema = new mongoose.Schema({
-    EmpID: {
+    empID: {
         type: String,
         required: true,
         unique: true
     },
-    Name: {
+    name: {
         type: String,
         required: true,
     },
-    MobileNo:{
+    mobileNo:{
         type: String,
         required: true,
     },
-    Designation:{
+    designation:{
         type: String,
         required: true,
     },
-    Email: {
+    email: {
         type: String,
         required: true,
-        unique: true
+        // unique: true
     },
-    Order:{
+    order:{
         type: String,
         required: true,
     },
-    Department: {
+    department: {
         type: String,
         required: true,
 
@@ -35,7 +35,7 @@ const employeeSchema = new mongoose.Schema({
         // ref:'Department',
         // required: true
     },
-    Acive:{
+    acive:{
         type: Boolean,
     },
 
